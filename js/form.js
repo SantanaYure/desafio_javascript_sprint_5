@@ -1,27 +1,31 @@
-
-//class contato
-
-class contato {
-    
-}
+// form.js
 
 function Post(form) {
+  event.preventDefault(); // evita recarregar a página
 
-  let data = new contato(form.elements.namedItem("nome").value,
-            form.elements.namedItem("sobrenome").value, 
-            form.elements.namedItem("email").value, 
-            form.elements.namedItem("cpf").value, 
-            form.elements.namedItem("telefone").value, 
-            form.elements.namedItem("contato").value);
-  
-}
+  const nome = form.nome.value.trim();
+  const sobrenome = form.sobrenome.value.trim();
+  const email = form.email.value.trim();
+  const telefone = form.telefone.value.trim();
+  const cpf = form.cpf.value.trim();
+  const contato = form.contato.value;
 
-function Enviar() {
+  // Validação simples (pode ser expandida)
+  if (!nome || !sobrenome || !email || !telefone || !cpf || contato === "COMO DESEJA SER CONTATADO") {
+    alert("Por favor, preencha todos os campos corretamente.");
+    return;
+  }
 
-    var nome = document.getElementById("nomeid");
+  // Simula o envio exibindo no console
+  console.log("Dados enviados:");
+  console.log("Nome:", nome);
+  console.log("Sobrenome:", sobrenome);
+  console.log("Email:", email);
+  console.log("Telefone:", telefone);
+  console.log("CPF:", cpf);
+  console.log("Forma de contato:", contato);
 
-    if (nome.value != "") {
-        alert('Obrigado sr(a) ' + nome.value + ' os seus dados foram encaminhados com sucesso');
-    }
+  alert("Obrigado, seus dados foram enviados com sucesso!");
 
+  form.reset(); // limpa os campos
 }
